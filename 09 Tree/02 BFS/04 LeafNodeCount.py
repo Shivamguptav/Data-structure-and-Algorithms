@@ -1,9 +1,6 @@
-# @author
-# Aakash Verma
-
 # Output:
 # Pre Order Traversal is: 1 2 4 5 3 6 7 
-# Number Of Full Nodes: 3
+# Number Of non-Leaf Nodes: 3
 
 
 # Creating a structure for the node.
@@ -16,10 +13,10 @@ class Node:
 
 
 # Defining class for the Binary Tree
-class NumberOfFullNodes:
+class NumberOfLeafNodes:
     
     # Assigning root as null initially. So as soon as the object will be created 
-    # of this NumberOfFullNodes class, root will be set as null.
+    # of this NumberOfLeafNodes class, root will be set as null.
     def __init__(self): 
         self.root = None
     
@@ -31,16 +28,16 @@ class NumberOfFullNodes:
         self.preOrder(root.left)
         self.preOrder(root.right)
 
-    def numFullNodes(self, root):
+    def numLeafNodes(self, root):
         if root is None:
             return 0
         if root.left is None and root.right is None:
-            return 0
-        return self.numFullNodes(root.left) + self.numFullNodes(root.right) + (1 if root.left is not None and root.right is not None else 0);
+            return 1;
+        return self.numLeafNodes(root.left) + self.numLeafNodes(root.right)
     
 # main method
 if __name__ == '__main__':
-    tree = NumberOfFullNodes()
+    tree = NumberOfLeafNodes()
     tree.root = Node(1)
     tree.root.left = Node(2)
     tree.root.right = Node(3)
@@ -51,7 +48,7 @@ if __name__ == '__main__':
     print("Pre Order Traversal is:",  end = " ")
     tree.preOrder(tree.root)
     print()
-    print("Number Of non-Leaf Nodes:", end = " ")
-    print(tree.numFullNodes(tree.root))
+    print("Number Of Leaf Nodes:", end = " ")
+    print(tree.numLeafNodes(tree.root))
     
  

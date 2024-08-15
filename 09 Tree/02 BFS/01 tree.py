@@ -1,7 +1,3 @@
-
-# @author
-# Aakash Verma
-
 # Creating a structure for the node.
 # Initializing the node's data upon calling its constructor.
 class Node:

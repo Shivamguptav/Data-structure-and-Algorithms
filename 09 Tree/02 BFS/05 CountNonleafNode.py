@@ -1,6 +1,3 @@
-# @author
-# Aakash Verma
-
 # Output:
 # Pre Order Traversal is: 1 2 4 5 3 6 7 
 # Number Of non-Leaf Nodes: 3
