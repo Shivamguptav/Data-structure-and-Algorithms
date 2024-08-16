@@ -1,3 +1,5 @@
+from collections import deque
+
 class Node:
     def __init__(self, info): 
         self.info = info  
@@ -13,7 +15,7 @@ class BinarySearchTree:
         self.root = None
 
     def create(self, val):  
-        if self.root == None:
+        if self.root is None:
             self.root = Node(val)
         else:
             current = self.root
@@ -34,38 +36,36 @@ class BinarySearchTree:
                 else:
                     break
 
-"""
-Node is defined as
-self.left (the left child of the node)
-self.right (the right child of the node)
-self.info (the value of the node)
-"""
 def topView(root):
-    q=[]
-    d=dict()
-    root.level=0
+    if not root:
+        return []
+    q = deque()
+    d = dict()
+    root.level = 0
     q.append(root)
     while q:
-        root = q.pop(0)
-        if root.level not in d:
-            d[root.level] = root.info
-        if root.left:
-            q.append(root.left)
-            root.left.level = root.level-1
-        if root.right:
-            q.append(root.right)
-            root.right.level = root.level+1
-    for i in sorted(d):
-        print(d[i], end=' ')    
+        node = q.popleft()
+        if node.level not in d:
+            d[node.level] = node.info
+        if node.left:
+            q.append(node.left)
+            node.left.level = node.level - 1
+        if node.right:
+            q.append(node.right)
+            node.right.level = node.level + 1
+    top_view_elements = [d[i] for i in sorted(d)]
+    return top_view_elements
 
+if __name__ == '__main__':
+    tree = BinarySearchTree()
+    tree.root = Node(1)
+    tree.root.left = Node(2)
+    tree.root.right = Node(3)
+    tree.root.left.left = Node(4)
+    tree.root.left.right = Node(5)
+    tree.root.right.left = Node(6)
+    tree.root.right.right = Node(7)
+    tree.root.right.right.left = Node(8)
 
-
-tree = BinarySearchTree()
-t = int(input())
-
-arr = list(map(int, input().split()))
-
-for i in range(t):
-    tree.create(arr[i])
-
-topView(tree.root)
+    top_view = topView(tree.root)
+    print("Top view of the tree:", top_view)
