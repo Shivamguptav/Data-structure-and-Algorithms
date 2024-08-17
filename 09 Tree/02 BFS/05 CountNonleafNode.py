@@ -48,7 +48,7 @@ if __name__ == '__main__':
     print("Pre Order Traversal is:",  end = " ")
     tree.preOrder(tree.root)
     print()
-    print("Number Of Leaf Nodes:", end = " ")
+    print("Number Of Non Leaf Nodes:", end = " ")
     print(tree.nonLeafNodes(tree.root))
     
  
