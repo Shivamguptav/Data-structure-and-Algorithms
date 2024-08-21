@@ -1,3 +1,4 @@
+#https://www.youtube.com/watch?v=AOUCC8kylCg&list=PLw41HP7SUoAVJq0JdR222HmrJZzBPd_rN&index=1
 # Creating a structure for the node.
 # Initializing the node's data upon calling its constructor.
 class Node:

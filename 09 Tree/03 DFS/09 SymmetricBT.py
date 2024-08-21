@@ -15,6 +15,7 @@ class SymmetricTree:
         self.root = None
 
     def findSymmetric(self, root1, root2):
+        
         if root1 is None and root2 is None:
             return True
         if root1 is None or root2 is None:
@@ -40,3 +41,21 @@ if __name__ == '__main__':
     
 
     
+
+
+'''
+    def isSymmetric(self, A):
+        if A is None:
+            return 1
+            
+        def checkmirror(root1, root2):
+            if root1 is None and root2 is None:
+                return 1
+            if root1 is None or root2 is None:
+                return 0
+            if root1.val != root2.val:
+                return 0
+            return checkmirror(root1.left, root2.right) and checkmirror(root1.right, root2.left)
+        
+        return checkmirror(A, A)
+'''
